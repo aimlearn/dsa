@@ -10,3 +10,12 @@ vector<int> removeEven(vector<int> nums) {
     }
     return nums;
 }
+
+int main() {
+    vector<int> vec2{1,2,3,4,5,6,7,8,7,5,8,9};
+    vector<int> vec = removeEven(vec2);
+    for (int i : vec) {
+        cout << i;
+    }
+    return 0;
+}
