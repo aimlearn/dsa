@@ -5,8 +5,8 @@ using namespace std;
 vector<int> mergeArray(int a1[], int a2[], const int m, const int n); // prototype
 
 int main() {
-    int a1[12] = {1,2,3,4,4,5,6,6,7,9,10,10}, a2[7] = {1,2,2,8,9,9,11};
-    vector<int> vec = mergeArray(a1, a2, 12, 7);
+    int a1[4] = {1,3,4,5}, a2[4] = {2,6,7,8};
+    vector<int> vec = mergeArray(a1, a2, 4, 4);
     for (int i : vec)
         cout << i << "\t";
 }
