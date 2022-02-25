@@ -3,15 +3,34 @@
 #include <vector>
 using namespace std;
 
-vector<int> findSum(int nums[], int val, int length);
+vector<int> findSum(vector<int> vec, int val);
+vector<int> findSumSet(int nums[], int val, int length);
 
 int main() {
-    int arr[] = {1,2,3,4,5,6};
-    vector<int> vec = findSum(arr, 6, 6);
-    for (int i : vec) cout << i << "\t";
+    vector<int> vec{1,2,3,4,5,6};
+    vector<int> vec2 = findSum(vec, 6);
+    for (int i : vec2) cout << i << "\t";
 }
 
-vector<int> findSum(int nums[], int val, int length) {
+vector<int> findSum(vector<int> vec, int val) {
+    sort(vec.begin(), vec.end());
+    vector<int> vec2;
+    int x = 0, y = vec.size()-1, a = vec[x], b = vec[y];
+    while (true) {
+        if (a+b > val) {
+            b = vec[--y];
+        } else if (a+b < val) {
+            a = vec[++x];
+        } else {
+            vec2.push_back(a);
+            vec2.push_back(b);
+            break;
+        }
+    }
+    return vec2;
+}
+
+vector<int> findSumSet(int nums[], int val, int length) {
     vector<int> vec;
     set<int> numset;
     for (int i = 0; i < length; i++) {
