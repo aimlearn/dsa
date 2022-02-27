@@ -6,7 +6,7 @@ using namespace std;
 vector<int> findProduct(vector<int> nums);
 
 int main() {
-    vector<int> vec{1,2,3,4,3,2,1};
+    vector<int> vec{4,1,3,2,5};
 
     vec = findProduct(vec);
 
@@ -20,8 +20,7 @@ vector<int> findProduct(vector<int> nums) {
     for (int i = 0; i < nums.size(); i++) initProduct *= nums[i]; // Initial product setting loop.
 
     for (int i = 0; i < nums.size(); i++) { // Result producing loop.
-        initProduct /= nums[i];
-        initProduct *= temp;
+        (initProduct /= nums[i]) *= temp;
         temp = nums[i];
         nums[i] = initProduct;
     }
