@@ -11,8 +11,7 @@ int main() {
 }
 
 int findSecondMaximum(vector<int> vec) {
-    int least = INT32_MIN;
-    int max = vec[0];
+    int least = INT32_MIN, max = vec[0];
     for (int i : vec) {
         if (i > max) {
             least = max;
