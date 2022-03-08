@@ -5,25 +5,28 @@ using namespace std;
 int findFirstUnique(vector<int> vec);
 
 int main() {
-    vector<int> nums{2,2,4,4,3};
+    vector<int> nums{9,3,3,1,1,3,9};
     int x = findFirstUnique(nums);
+    cout << x;
     return 0;
 }
 
 int findFirstUnique(vector<int> vec) {
-    int i = 0, j = 1, firstUnique = vec[i];
+    int firstUnique = -1;
+    bool found = true;
 
-    while (true) {
-        if (j == vec.size() - 1) {
+    for (int i = 0; i < vec.size(); i++) {
+        found = true;
+        for (int j = 0; j < vec.size(); j++) {
+            if (i != j && vec[i] == vec[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            firstUnique = vec[i];
             break;
         }
-        if (vec[i] == vec[j]) {
-            firstUnique = vec[++i];
-        } else {
-            j++;
-        }
     }
-
-    cout << firstUnique;
-    return 0;
+    return firstUnique;
 }

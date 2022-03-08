@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int minimum(int nums[], int length);
+int findMinimum(int nums[], int length);
 
 int main() {
     int arr[] = {5,4,3,6,8,9};
