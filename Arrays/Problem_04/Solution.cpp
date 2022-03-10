@@ -20,9 +20,7 @@ vector<int> findProduct(vector<int> nums) {
     for (int i = 0; i < nums.size(); i++) initProduct *= nums[i]; // Initial product setting loop.
 
     for (int i = 0; i < nums.size(); i++) { // Result producing loop.
-        (initProduct /= nums[i]) *= temp;
-        temp = nums[i];
-        nums[i] = initProduct;
+        nums[i] = initProduct/nums[i];
     }
 
     return nums;
